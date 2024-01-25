@@ -13,22 +13,24 @@ interface ScreenContainerProps {
 export const ScreenContainer = ({
     title,
     children,
-    withSeparatorFooter = false,
 }: ScreenContainerProps) => {
     return (
-        <ScrollView nestedScrollEnabled={true}>
-            <View style={styles.container}>
-                <Offline />
-                <Text variant="headlineMedium" style={styles.title}>{title}</Text>
-                {children}
-            </View>
-        </ScrollView>
+        <>
+            <Offline />
+            <ScrollView nestedScrollEnabled={true}>
+                <View style={styles.container}>
+                    <Text variant="headlineMedium" style={styles.title}>{title}</Text>
+                    {children}
+                </View>
+            </ScrollView>
+        </>
     );
 };
 
 const styles = StyleSheet.create({
     container: {
-        padding: 32
+        padding: 32,
+        paddingTop: 0,
     },
     title: {
         fontWeight: "bold",

@@ -12,9 +12,9 @@ export default function App() {
     <NetworkProvider>
       <QueryClientProvider client={queryClient}>
         <PaperProvider>
-          <Login />
+          {/* <Login /> */}
           {/* <Terms /> */}
-          {/* <StarshipFeed /> */}
+          <StarshipFeed />
         </PaperProvider>
       </QueryClientProvider>
     </NetworkProvider >
