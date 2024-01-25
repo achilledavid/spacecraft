@@ -6,7 +6,7 @@ import { ActivityIndicator } from "react-native-paper";
 export const Offline = () => {
     const isConnected = useIsConnected();
 
-    if (!isConnected) return null;
+    if (isConnected) return null;
 
     return (
         <View style={styles.container}>
