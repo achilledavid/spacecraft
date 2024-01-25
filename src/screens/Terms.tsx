@@ -2,7 +2,7 @@ import React from "react";
 import { View, Image, Alert, ScrollView } from "react-native";
 import { Appbar, Text } from "react-native-paper";
 
-export const Terms = () => {
+export default function Terms() {
     function goBack() {
         Alert.alert("You pressed the back button!");
     }
@@ -98,7 +98,6 @@ export const Terms = () => {
                         uri: "https://media.giphy.com/media/krkrHAEodHgzP72rTI/giphy.gif",
                     }}
                 />
-
                 <Text style={{ marginBottom: 128 }}>May the force be with you</Text>
             </View>
         </ScrollView>
