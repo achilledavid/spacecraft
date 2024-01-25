@@ -24,6 +24,7 @@ export default function Login() {
           <Pressable><Text variant="bodySmall" style={styles.baseline}>Read Terms and conditions</Text></Pressable>
         </KeyboardAvoidingView>
       </View>
+      <SafeAreaView />
     </>
   );
 }
