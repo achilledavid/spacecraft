@@ -2,7 +2,7 @@ import { KeyboardAvoidingView, Pressable, SafeAreaView, StyleSheet, View } from 
 import { Text } from 'react-native-paper';
 import { TextInput, Button } from 'react-native-paper';
 import { useState } from 'react';
-import Header from '../components/Header';
+import Header from '~/components/Header';
 
 export default function Login() {
   const [visiblePassword, setVisiblePassword] = useState(false);
@@ -13,14 +13,14 @@ export default function Login() {
       <View style={styles.container}>
         <Header title='Spacecraft' />
         <KeyboardAvoidingView style={styles.form}>
-          <TextInput placeholder='Email' keyboardType='email-address' />
-          <TextInput placeholder='Password' secureTextEntry={!visiblePassword} right={
+          <TextInput mode='outlined' label='Email' keyboardType='email-address' />
+          <TextInput mode='outlined' label='Mot de passe' secureTextEntry={!visiblePassword} right={
             <TextInput.Icon
               onPress={() => setVisiblePassword((old) => !old)}
               icon={visiblePassword ? "eye" : "eye-off"}
             />
           } />
-          <Button mode='contained'>Login</Button>
+          <Button mode='contained'>Connexion</Button>
           <Pressable><Text variant="bodySmall" style={styles.baseline}>Read Terms and conditions</Text></Pressable>
         </KeyboardAvoidingView>
       </View>

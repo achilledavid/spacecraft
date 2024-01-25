@@ -1,5 +1,5 @@
 import { Card } from "react-native-paper";
-import { useImage } from "../hooks/useImage";
+import { useImage } from "~/hooks/useImage";
 
 export type Starship = {
     name: string;
