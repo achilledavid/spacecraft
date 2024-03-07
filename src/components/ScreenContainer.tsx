@@ -1,39 +1,44 @@
 import type { ReactNode } from "react";
 import React from "react";
 import { ScrollView, StyleSheet, View } from "react-native";
+import { useIsConnected } from "react-native-offline";
 import { Text } from "react-native-paper";
+
 import { Offline } from "~/components/Offline";
 
 interface ScreenContainerProps {
-    title: string;
-    children?: ReactNode;
-    withSeparatorFooter?: boolean;
+  title: string;
+  children?: ReactNode;
+  withSeparatorFooter?: boolean;
 }
 
-export const ScreenContainer = ({
-    title,
-    children,
-}: ScreenContainerProps) => {
-    return (
-        <>
-            <Offline />
-            <ScrollView nestedScrollEnabled={true}>
-                <View style={styles.container}>
-                    <Text variant="headlineMedium" style={styles.title}>{title}</Text>
-                    {children}
-                </View>
-            </ScrollView>
-        </>
-    );
-};
+export const ScreenContainer = ({ title, children }: ScreenContainerProps) => {
+  const isConnected = useIsConnected();
 
-const styles = StyleSheet.create({
+  const styles = StyleSheet.create({
     container: {
-        padding: 32,
-        paddingTop: 0,
-    },
-    title: {
-        fontWeight: "bold",
-        marginBottom: 24,
+      display: "flex",
+      flex: 1,
+      gap: 32,
+      marginTop: !isConnected || isConnected === null ? 69 : 0,
+      paddingHorizontal: 32
     }
-});
+  });
+
+  return (
+    <>
+      <Offline />
+      <ScrollView nestedScrollEnabled={true}>
+        <View style={styles.container}>
+          <Text
+            variant="headlineMedium"
+            style={{ fontWeight: "bold" }}
+          >
+            {title}
+          </Text>
+          {children}
+        </View>
+      </ScrollView>
+    </>
+  );
+};
